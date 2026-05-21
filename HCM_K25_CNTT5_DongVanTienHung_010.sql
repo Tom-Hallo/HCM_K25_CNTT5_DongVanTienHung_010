@@ -154,7 +154,7 @@ BEGIN
 	DECLARE ck_status VARCHAR(10);
     
     SELECT status INTO ck_status
-    FROM claims WHERE OLD.claim_id = NEW.claim_id;
+    FROM claims WHERE claim_id = NEW.claim_id;
     
     IF ck_status = 'Approved' THEN
 		INSERT INTO claim_processing_log (log_id,claim_id, action_detail, processor)
